@@ -1,0 +1,6 @@
+.header-info {
+  background-color: grey;
+  display: flex;
+  justify-content: space-around; }
+  .header-info span {
+    font-size: 24px; }
