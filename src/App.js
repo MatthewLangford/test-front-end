@@ -12,24 +12,26 @@ const dummyTestData = [];
 
 export default class App extends Component {
   state = {
-    headerName : 'HashiBoi App',
-    rigInfo : [],   
+    title : 'HashiBoi App',
+    rigInfo : [],  
+    columnHeader: ['#', 'Miner Version', 'Hashrate', 'Acc/Rej/Inv Shares', 'Pool Switches', 
+                   'Hashrate Per Card', 'Temp Per Card', 'Fan Per Card', 'Time Active'] 
   }; 
 
   initializeTestBackEndCode = () => {
     for(let i = 0; i < 60; i++){
       dummyTestData.push({
-        rigNumber: i ,
-                minerVersion: 11,
-                totalTimeInMinutes: 1000,
-                hashrateTotal: 360000,
-                acceptedShares: 200000,
-                rejectedShares: 0,
-                invalidShares: 0,
-                rigPoolSwitches: 0,
-                rigHashRatePerCard: [30,30,30,30,30,30,30,30,30,30,30,30],
-                rigGpuTempPerCard: [55,55,55,55,55,55,55,55,55,55,55,55],
-                rigGpuFanPerCard: [30,30,30,30,30,30,30,30,30,30,30,30]
+          rigNumber: i ,
+          minerVersion: 11,
+          totalTimeInMinutes: 1000,
+          hashrateTotal: 360000,
+          acceptedShares: 200000,
+          rejectedShares: 0,
+          invalidShares: 0,
+          rigPoolSwitches: 0,
+          rigHashRatePerCard: [30,30,30,30,30,30,30,30,30,30,30,30],
+          rigGpuTempPerCard: [55,55,55,55,55,55,55,55,55,55,55,55],
+          rigGpuFanPerCard: [30,30,30,30,30,30,30,30,30,30,30,30]
       });
     }
     this.setState({
@@ -60,13 +62,13 @@ export default class App extends Component {
   
 
   render() {
-    const { headerName, rigInfo, totalAcceptedShares, totalHashrate, totalRejectedShares } = this.state;
+    const { title, rigInfo, totalAcceptedShares, totalHashrate, totalRejectedShares, columnHeader} = this.state;
 
     return (
       <div className="App">
-        <Header header={ headerName } />
+        <Header title={ title } />
         <HeaderInfo totalAcceptedShares= { totalAcceptedShares } totalHashrate={ totalHashrate } totalRejectedShares={ totalRejectedShares } />
-        <RigListContainer rigInfo={ rigInfo } />
+        <RigListContainer columnHeader={ columnHeader } rigInfo={ rigInfo } />
       </div>
     );
   }

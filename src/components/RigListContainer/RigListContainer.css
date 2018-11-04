@@ -1,11 +1,5 @@
 .grid-header {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto; }
-
-.show-grid {
-  margin-left: auto;
-  margin-right: auto; }
+  line-height: 30px; }
 
 .header-column {
   border: black solid 1px; }

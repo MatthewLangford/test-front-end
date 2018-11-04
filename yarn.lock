@@ -7133,6 +7133,13 @@ react-error-overlay@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.0.tgz#c516995a5652e7bfbed8b497910d5280df74a7e8"
 
+react-grid-system@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/react-grid-system/-/react-grid-system-4.3.1.tgz#10c115d2fae05c30a1f5720701e7f0229048eda0"
+  dependencies:
+    lodash "^4.17.10"
+    prop-types "^15.6.2"
+
 react-is@^16.3.2:
   version "16.6.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.6.0.tgz#456645144581a6e99f6816ae2bd24ee94bdd0c01"
