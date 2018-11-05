@@ -1,4 +1,5 @@
 .title {
+  border: solid black 1px;
   text-align: center;
   font-size: 28px;
   background-color: grey; }

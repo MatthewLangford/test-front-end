@@ -13,9 +13,8 @@ const dummyTestData = [];
 export default class App extends Component {
   state = {
     title : 'HashiBoi App',
-    rigInfo : [],  
-    columnHeader: ['#', 'Miner Version', 'Hashrate', 'Acc/Rej/Inv Shares', 'Pool Switches', 
-                   'Hashrate Per Card', 'Temp Per Card', 'Fan Per Card', 'Time Active'] 
+    rigInfo : [],
+    totals : {} 
   }; 
 
   initializeTestBackEndCode = () => {
@@ -28,19 +27,22 @@ export default class App extends Component {
           acceptedShares: 200000,
           rejectedShares: 0,
           invalidShares: 0,
-          rigPoolSwitches: 0,
-          rigHashRatePerCard: [30,30,30,30,30,30,30,30,30,30,30,30],
-          rigGpuTempPerCard: [55,55,55,55,55,55,55,55,55,55,55,55],
-          rigGpuFanPerCard: [30,30,30,30,30,30,30,30,30,30,30,30]
+          poolSwitches: 0,
+          hashratePerCard: [30,30,30,30,30,30,30,30,30,30,30,30],
+          tempPerCard: [55,55,55,55,55,55,55,55,55,55,55,55],
+          fanPerCard: [30,30,30,30,30,30,30,30,30,30,30,30]
       });
-    }
+    };
     this.setState({
       rigInfo : dummyTestData,
-      totalAcceptedShares: 18500,
-      totalRejectedShares: 5,
-      totalHashrate: 21000
+      totals: {
+        acceptedShares: 18500,
+        rejectedShares: 5,
+        hashrate: 21000,
+        invalidShares: 0
+     }
     });
-  }
+  };
 
   getMiningData = async url => {
     try {
@@ -62,15 +64,15 @@ export default class App extends Component {
   
 
   render() {
-    const { title, rigInfo, totalAcceptedShares, totalHashrate, totalRejectedShares, columnHeader} = this.state;
+    const { title, rigInfo, totals } = this.state;
 
     return (
       <div className="App">
         <Header title={ title } />
-        <HeaderInfo totalAcceptedShares= { totalAcceptedShares } totalHashrate={ totalHashrate } totalRejectedShares={ totalRejectedShares } />
-        <RigListContainer columnHeader={ columnHeader } rigInfo={ rigInfo } />
+        <HeaderInfo totals={ totals } />
+        <RigListContainer rigInfo={ rigInfo } />
       </div>
     );
-  }
-}
+  };
+};
 
